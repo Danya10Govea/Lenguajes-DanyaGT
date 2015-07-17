@@ -1,0 +1,11 @@
+GeneradorDeUsuarios gen=new GeneradorDeUsuarios();
+        List<Usuario> usuarios = gen.getUsuarios();
+        Collections.sort(usuarios, new UsuarioPorNombre());
+        tablaUsuarios.setModel(new DefaultTableModel(new String []{"Nombre","edad","email"},gen.getUsuarios().size()));
+        
+        int fila=0;
+        for (Usuario u:gen.getUsuarios()){
+                    tablaUsuarios.setValueAt(u.getNombre(), fila, 0);
+                    tablaUsuarios.setValueAt(u.getEdad(), fila, 1);
+                    tablaUsuarios.setValueAt(u.getEmail(), fila, 2);
+                    fila++;
