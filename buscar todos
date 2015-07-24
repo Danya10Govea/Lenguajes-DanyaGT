@@ -1,0 +1,31 @@
+public class ModeloPersistenciaAnimal {
+   String ruta="\"D:\\\\BASE DE DATOS/animalitos.xxx\"";
+    public void guardar(Animal animal)throws Exception{
+        //paso 1 crear el archivo donde se guarda el animal 
+        File file =new  File("D:\\BASE DE DATOS/animalitos.xxx");
+        FileOutputStream fos=new FileOutputStream(file);
+        ObjectOutputStream  oos=new ObjectOutputStream(fos);
+        oos.writeObject(animal);
+        System.out.println("Animalito comprimido con exito");
+        
+    }
+    
+public Animal buscarTodos () throws Exception{
+Animal a=new Animal ();
+File f=new File (ruta);
+FileInputStream fis=new FileInputStream(f);
+ObjectInputStream ois=new ObjectInputStream(fis);
+  Object objeto=ois.readObject();
+  a=(Animal) ois.readObject();
+  return a;
+  
+  
+  +++++++++++++++++++++++Creamos una clase para jalar el hecho buscar todos+++++++++++++++++++++++++++++
+  package serializacion;
+
+public class Zoologico {
+    public static void main(String[] args)throws Exception{
+        ModeloPersistenciaAnimal m=new ModeloPersistenciaAnimal();
+        Animal a= m.buscarTodos();
+            System.out.println(a.getNombre());
+    
