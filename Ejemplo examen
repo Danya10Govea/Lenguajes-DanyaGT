@@ -1,0 +1,22 @@
+//* Ingreso de datos 
+
+    Prívate void JButton...{
+    
+    If (String.valueOf(usuario.getText() ).compareTo("examen")==0 
+    && String.valueOf(contraseña.getPassword() ).compareTo("aprobado")==0 
+    {
+
+//* Conexión a la otra ventana 
+ 
+     VistaAprobados obj=new VistaAprobados ();
+     Obj.setVisible(true);
+     dispose ();
+     }
+     Else
+     {
+
+//* Mensaje de error 
+
+    JOptionPane.showMessageDialog (rootPane,"Estas Reprobado");
+    }
+}
